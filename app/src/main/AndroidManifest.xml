@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        Sıfır izin politikası: INTERNET dahil hiçbir izin yok.
+        AndroidX core'un otomatik eklediği dahili izin de birleştirmede kaldırılır.
+    -->
+    <uses-permission
+        android:name="${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        tools:node="remove" />
+    <permission
+        android:name="${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        tools:node="remove" />
+
+    <application
+        android:name=".ProteinLifSuApp"
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:usesCleartextTraffic="false"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:label="${appLabel}"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ProteinLifSu"
+        tools:targetApi="36">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+            ProfileInstaller'ın dışa açık (exported=true) geliştirici alıcısı kaldırılır.
+            Baseline profil kurulumu androidx.startup (exported=false) üzerinden sürer.
+        -->
+        <receiver
+            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+            tools:node="remove" />
+    </application>
+</manifest>

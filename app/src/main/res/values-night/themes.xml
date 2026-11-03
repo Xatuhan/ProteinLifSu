@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Sistem koyu moddayken açılış penceresi de koyu (beyaz parlama olmasın). -->
+    <style name="Theme.ProteinLifSu" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/app_background</item>
+        <item name="android:statusBarColor">@color/app_background</item>
+        <item name="android:navigationBarColor">@color/app_background</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+    <color name="app_background">#FF151413</color>
+</resources>
